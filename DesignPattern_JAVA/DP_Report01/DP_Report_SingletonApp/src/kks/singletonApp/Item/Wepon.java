@@ -5,13 +5,15 @@ import java.awt.image.BufferedImage;
 public class Wepon {
 	private BufferedImage wImg;
 	private String wName;
+	private int wStrength;
 	private int wDamage;
 	private int wDefence;
 	private int wDexterity;
 	private int wAgility;
 
-	public Wepon(String name, int dmg, int def, int dex, int agi,
+	public Wepon(String name, int str, int dmg, int def, int dex, int agi,
 			BufferedImage img) {
+		wStrength = str;
 		wName = name;
 		wDamage = dmg;
 		wDefence = def;
@@ -66,6 +68,14 @@ public class Wepon {
 
 	public void setwImg(BufferedImage wImg) {
 		this.wImg = wImg;
+	}
+
+	public int getStrength() {
+		return wStrength;
+	}
+
+	public void setStrength(int wStrength) {
+		this.wStrength = wStrength;
 	}
 
 }

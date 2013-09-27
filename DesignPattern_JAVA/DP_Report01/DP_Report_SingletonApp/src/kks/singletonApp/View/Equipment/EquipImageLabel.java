@@ -16,10 +16,15 @@ public class EquipImageLabel extends JLabel {
 	 * for more info on the parameters }
 	 */
 
-	public void loadWeponImage() {
+	public EquipImageLabel(String text) {
+		setText(text);
+	}
+
+	public void loadWeponImage(BufferedImage getwImg) {
 		try {
 			image = ImageIO.read(new File("image name and path"));
 		} catch (IOException ex) {
+			setText("No Image");
 		}
 	}
 

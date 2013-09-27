@@ -1,35 +1,32 @@
 package kks.singletonApp.Listener;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-import kks.singletonApp.View.PanelManager;
+import kks.singletonApp.Manager.PanelManager;
+import kks.singletonApp.View.Wepon.WeponSelectButton;
 
-public class WeponSelectListener implements MouseListener {
+public class WeponSelectListener implements ActionListener {
 	private PanelManager panelManager;
+	private ArrayList<WeponSelectButton> weponBtnList;
 
-	public WeponSelectListener(PanelManager panelManager) {
+	public WeponSelectListener(PanelManager panelManager,
+			ArrayList<WeponSelectButton> weponBtnList) {
 		this.panelManager = panelManager;
+		this.weponBtnList = weponBtnList;
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent event) {
-	}
+	public void actionPerformed(ActionEvent event) {
+		WeponSelectButton btn = (WeponSelectButton) event.getSource();
+		String weponBtnName = btn.getWeponBtnName();
 
-	@Override
-	public void mouseEntered(MouseEvent event) {
-	}
-
-	@Override
-	public void mouseExited(MouseEvent event) {
-	}
-
-	@Override
-	public void mousePressed(MouseEvent event) {
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent event) {
+		for (WeponSelectButton weponBtn : weponBtnList) {
+			if (weponBtn.getWeponBtnName().equalsIgnoreCase(weponBtnName)) {
+				panelManager.changeWepon(weponBtn.getWepon());
+			}
+		}
 	}
 
 }

@@ -2,28 +2,20 @@ package kks.singletonApp;
 
 import javax.swing.JFrame;
 
-import kks.singletonApp.Character.Character;
-import kks.singletonApp.View.PanelManager;
-import kks.singletonApp.View.Equipment.EquipPanel;
-import kks.singletonApp.View.Wepon.WeponPanel;
-import kks.singletonApp.View.status.StatusPanel;
+import kks.singletonApp.Manager.ItemManager;
+import kks.singletonApp.Manager.PanelManager;
 
 public class SingletonApp extends JFrame {
-	private PanelManager panelManager;
 
 	public SingletonApp() {
-		Character character = Character.getInstance();
-		StatusPanel statusPanel = new StatusPanel();
-		WeponPanel weponPanel = new WeponPanel();
-		EquipPanel equipPanel = new EquipPanel();
-
-		panelManager = new PanelManager(character, statusPanel, weponPanel,
-				equipPanel);
+		ItemManager itemManager = new ItemManager();
+		PanelManager panelManager = new PanelManager(itemManager);
 		add(panelManager.getBoard());
 
 		setTitle("ΩÃ±€≈Ê øπ¡¶ æ€");
-		setSize(400, 400);
+		setSize(450, 200);
 		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
