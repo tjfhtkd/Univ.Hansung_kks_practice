@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import kks.singletonApp.Item.Wepon;
+import kks.singletonApp.Item.Weapon;
 
 public class EquipPanel extends JPanel {
 	private EquipImageLabel weponImgLabel;
@@ -19,7 +19,7 @@ public class EquipPanel extends JPanel {
 		setEquipPanel();
 	}
 
-	public void changeWeponImg(Wepon wepon) {
+	public void changeWeponImg(Weapon wepon) {
 		weponNameLabel.setText(wepon.getWeponName());
 		weponInfoLabel.setText(wepon.getAgility() + "/" + wepon.getDamage()
 				+ "/" + wepon.getDefence() + "/" + wepon.getDexterity() + "/"

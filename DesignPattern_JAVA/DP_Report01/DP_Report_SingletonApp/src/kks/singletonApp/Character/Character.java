@@ -1,19 +1,19 @@
 package kks.singletonApp.Character;
 
-import kks.singletonApp.Item.Wepon;
+import kks.singletonApp.Item.Weapon;
 
 public class Character {
 	private static Character instance = null;
 
 	private Status status;
-	private Wepon equipWepon;
+	private Weapon equipWepon;
 
 	private Character() {
 		status = new Status();
 		equipWepon = null;
 	}
 
-	public static Character getInstance() {
+	synchronized public static Character getInstance() {
 		if (instance == null) {
 			instance = new Character();
 		}
@@ -28,11 +28,11 @@ public class Character {
 		this.status = status;
 	}
 
-	public Wepon getEquipWepon() {
+	public Weapon getEquipWepon() {
 		return equipWepon;
 	}
 
-	public void setEquipWepon(Wepon equipWepon) {
+	public void setEquipWepon(Weapon equipWepon) {
 		this.equipWepon = equipWepon;
 	}
 

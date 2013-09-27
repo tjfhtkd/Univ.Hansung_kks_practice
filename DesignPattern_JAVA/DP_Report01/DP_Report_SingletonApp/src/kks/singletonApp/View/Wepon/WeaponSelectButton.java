@@ -2,12 +2,12 @@ package kks.singletonApp.View.Wepon;
 
 import javax.swing.JButton;
 
-import kks.singletonApp.Item.Wepon;
+import kks.singletonApp.Item.Weapon;
 
-public class WeponSelectButton extends JButton {
-	private Wepon wepon;
+public class WeaponSelectButton extends JButton {
+	private Weapon wepon;
 
-	public WeponSelectButton(Wepon wepon) {
+	public WeaponSelectButton(Weapon wepon) {
 		this.wepon = wepon;
 		setText(wepon.getWeponName());
 	}
@@ -24,7 +24,7 @@ public class WeponSelectButton extends JButton {
 		return wepon.getWeponName();
 	}
 
-	public Wepon getWepon() {
+	public Weapon getWepon() {
 		return wepon;
 	}
 

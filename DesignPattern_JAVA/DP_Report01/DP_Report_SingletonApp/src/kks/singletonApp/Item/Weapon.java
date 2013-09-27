@@ -2,8 +2,10 @@ package kks.singletonApp.Item;
 
 import java.awt.image.BufferedImage;
 
-public class Wepon {
-	private BufferedImage wImg;
+import javax.swing.ImageIcon;
+
+public class Weapon {
+	private ImageIcon wImg;
 	private String wName;
 	private int wStrength;
 	private int wDamage;
@@ -11,8 +13,8 @@ public class Wepon {
 	private int wDexterity;
 	private int wAgility;
 
-	public Wepon(String name, int str, int dmg, int def, int dex, int agi,
-			BufferedImage img) {
+	public Weapon(String name, int str, int dmg, int def, int dex, int agi,
+			ImageIcon img) {
 		wStrength = str;
 		wName = name;
 		wDamage = dmg;
@@ -62,11 +64,11 @@ public class Wepon {
 		this.wAgility = wAgility;
 	}
 
-	public BufferedImage getwImg() {
+	public ImageIcon getwImg() {
 		return wImg;
 	}
 
-	public void setwImg(BufferedImage wImg) {
+	public void setwImg(ImageIcon wImg) {
 		this.wImg = wImg;
 	}
 

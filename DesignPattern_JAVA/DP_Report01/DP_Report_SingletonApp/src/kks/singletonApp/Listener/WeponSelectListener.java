@@ -5,24 +5,24 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import kks.singletonApp.Manager.PanelManager;
-import kks.singletonApp.View.Wepon.WeponSelectButton;
+import kks.singletonApp.View.Wepon.WeaponSelectButton;
 
 public class WeponSelectListener implements ActionListener {
 	private PanelManager panelManager;
-	private ArrayList<WeponSelectButton> weponBtnList;
+	private ArrayList<WeaponSelectButton> weponBtnList;
 
 	public WeponSelectListener(PanelManager panelManager,
-			ArrayList<WeponSelectButton> weponBtnList) {
+			ArrayList<WeaponSelectButton> weponBtnList) {
 		this.panelManager = panelManager;
 		this.weponBtnList = weponBtnList;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		WeponSelectButton btn = (WeponSelectButton) event.getSource();
+		WeaponSelectButton btn = (WeaponSelectButton) event.getSource();
 		String weponBtnName = btn.getWeponBtnName();
 
-		for (WeponSelectButton weponBtn : weponBtnList) {
+		for (WeaponSelectButton weponBtn : weponBtnList) {
 			if (weponBtn.getWeponBtnName().equalsIgnoreCase(weponBtnName)) {
 				panelManager.changeWepon(weponBtn.getWepon());
 			}

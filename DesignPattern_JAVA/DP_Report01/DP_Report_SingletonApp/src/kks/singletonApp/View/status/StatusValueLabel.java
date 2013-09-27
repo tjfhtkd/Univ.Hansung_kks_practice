@@ -4,14 +4,16 @@ import javax.swing.JLabel;
 
 public class StatusValueLabel extends JLabel {
 	private int incStat;
+	private StatusIncAnimThread anim;
 
 	public StatusValueLabel(int basicStatusValue) {
 		this.setText(String.valueOf(basicStatusValue));
+		anim = new StatusIncAnimThread();
 	}
 
 	public void changeValue(int stat) {
 		this.incStat = stat;
-		new Thread(new StatusIncAnimThread()).start();
+		new Thread(anim).start();
 	}
 
 	private void setTextStatusValue(int stat) {
@@ -21,15 +23,22 @@ public class StatusValueLabel extends JLabel {
 	private class StatusIncAnimThread implements Runnable {
 		@Override
 		public void run() {
-			for (int startIncNum = 0; startIncNum <= incStat; startIncNum++) {
+			int widthIncNum = 1;
+
+			if (incStat > 300) {
+				widthIncNum = 5;
+			}
+
+			for (int startIncNum = 0; startIncNum <= incStat; startIncNum += widthIncNum) {
 				try {
 					setTextStatusValue(startIncNum);
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
-				} finally {
-					setTextStatusValue(incStat);
+					break;
 				}
 			}
+
+			setTextStatusValue(incStat);
 		}
 	}
 

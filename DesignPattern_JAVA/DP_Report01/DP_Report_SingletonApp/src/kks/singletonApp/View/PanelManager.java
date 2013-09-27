@@ -6,18 +6,18 @@ import javax.swing.JPanel;
 
 import kks.singletonApp.Character.Character;
 import kks.singletonApp.View.Equipment.EquipPanel;
-import kks.singletonApp.View.Wepon.WeponPanel;
+import kks.singletonApp.View.Wepon.WeaponPanel;
 import kks.singletonApp.View.status.StatusPanel;
 
 public class PanelManager {
 	private JPanel board;
 	private Character character;
 	private StatusPanel statusPanel;
-	private WeponPanel weponPanel;
+	private WeaponPanel weponPanel;
 	private EquipPanel equipPanel;
 
 	public PanelManager(Character character, StatusPanel statusPanel,
-			WeponPanel weponPanel, EquipPanel equipPanel) {
+			WeaponPanel weponPanel, EquipPanel equipPanel) {
 		this.setCharacter(character);
 		this.setStatusPanel(statusPanel);
 		this.setWeponPanel(weponPanel);
@@ -46,11 +46,11 @@ public class PanelManager {
 		this.statusPanel = statusPanel;
 	}
 
-	public WeponPanel getWeponPanel() {
+	public WeaponPanel getWeponPanel() {
 		return weponPanel;
 	}
 
-	public void setWeponPanel(WeponPanel weponPanel) {
+	public void setWeponPanel(WeaponPanel weponPanel) {
 		this.weponPanel = weponPanel;
 	}
 

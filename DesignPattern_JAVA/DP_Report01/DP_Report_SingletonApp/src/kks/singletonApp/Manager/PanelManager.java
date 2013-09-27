@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import kks.singletonApp.Character.Character;
-import kks.singletonApp.Item.Wepon;
+import kks.singletonApp.Item.Weapon;
 import kks.singletonApp.Listener.WeponSelectListener;
 import kks.singletonApp.View.Equipment.EquipPanel;
-import kks.singletonApp.View.Wepon.WeponPanel;
+import kks.singletonApp.View.Wepon.WeaponPanel;
 import kks.singletonApp.View.status.StatusPanel;
 
 public class PanelManager {
 	private JPanel board;
 	private Character character;
 	private StatusPanel statusPanel;
-	private WeponPanel weponPanel;
+	private WeaponPanel weponPanel;
 	private EquipPanel equipPanel;
 
 	public PanelManager(ItemManager itemManager) {
-		ArrayList<Wepon> weponList = itemManager.getWeponList();
+		ArrayList<Weapon> weponList = itemManager.getWeaponList();
 
 		character = Character.getInstance();
 		statusPanel = new StatusPanel();
-		weponPanel = new WeponPanel(weponList);
+		weponPanel = new WeaponPanel(weponList);
 		equipPanel = new EquipPanel();
 
 		WeponSelectListener listener = new WeponSelectListener(this,
@@ -38,7 +38,7 @@ public class PanelManager {
 		board.add(weponPanel);
 	}
 
-	public void changeWepon(Wepon wepon) {
+	public void changeWepon(Weapon wepon) {
 		statusPanel.changeStatus(wepon);
 		weponPanel.changeWepon(wepon);
 		equipPanel.changeWeponImg(wepon);
@@ -60,11 +60,11 @@ public class PanelManager {
 		this.statusPanel = statusPanel;
 	}
 
-	public WeponPanel getWeponPanel() {
+	public WeaponPanel getWeponPanel() {
 		return weponPanel;
 	}
 
-	public void setWeponPanel(WeponPanel weponPanel) {
+	public void setWeponPanel(WeaponPanel weponPanel) {
 		this.weponPanel = weponPanel;
 	}
 

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import kks.singletonApp.Character.Character;
 import kks.singletonApp.Character.Status;
-import kks.singletonApp.Item.Wepon;
+import kks.singletonApp.Item.Weapon;
 
 public class StatusPanel extends JPanel {
 	private final String STATUSNAME_STR = "STR";
@@ -28,7 +28,7 @@ public class StatusPanel extends JPanel {
 		addStatPanel(printPanelList);
 	}
 
-	public void changeStatus(Wepon wepon) {
+	public void changeStatus(Weapon wepon) {
 		for (StatusPrintPanel panel : printPanelList) {
 			panel.changeStatus(getCalcStatus(panel.getTypeName(), wepon));
 		}
@@ -51,7 +51,7 @@ public class StatusPanel extends JPanel {
 		}
 	}
 
-	private int getCalcStatus(String typeName, Wepon wepon) {
+	private int getCalcStatus(String typeName, Weapon wepon) {
 		int basicValue = getBasicStatus(typeName);
 		int weponBonusValue = 0;
 
